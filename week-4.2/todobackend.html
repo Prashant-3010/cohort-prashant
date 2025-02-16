@@ -1,0 +1,41 @@
+<html>
+    <body>
+        <input id="title" type="text" placeholder="title"> <br></br>
+        <input id="description" type="text" placeholder="description"> <br></br>
+        <div id ="todo"></div>
+    </body>
+
+    <script>
+       
+        function createchild(title , description , id) {
+            const child = document.createElement("div");
+            const first = document.createElement("div");
+            first.innerHTML = title;
+            const second = document.createElement("div");
+            second.innerHTML = description;
+            const third = document.createElement("button");
+            third.innerHTML = "Mark As Done";
+            third.setAttribute("onclick",`done(${id})`);
+            child.appendChild(first);
+            child.appendChild(second);
+            child.appendChild(third);
+            child.setAttribute("id",id);
+            return child;
+
+        }
+
+        function update(state) {
+            const parent = document.getElementById("todo");
+            parent.innerHTML = "";
+            for (let i = 0; i<state.length; i++) {
+                const child = createchild(state[i].title, state[i].description, state[i].id);
+                parent.appendChild(child);
+            }
+        }
+        window.setInterval(async function () {
+            const res = await fetch("https://sum-server.100xdevs.com/todos");
+            const json = await res.json();
+            update(json.todos);
+        }, 5000);
+    </script>
+</html>

@@ -1,0 +1,8 @@
+If you want to ssh in prashant-test instance with Instance Id = i-03ab98985e1ef3a4f. follow steps:
+1. first start the instance by logging in aws account.
+2. open terminal and change your directory to where the key-pair of your instance is stored:
+in my case it will be desktop\prashant\cohort-Prashant\cert
+3. for Prashant-test instance the key pair is stored with name prash-pass.pem in cert folder
+4. type cd "desktop\prashant\cohort-Prashant\cert" this command to go to desired location.
+5. then type "ssh -i prash-pass.pem ubuntu@3.7.68.48" command to ssh in prashant-test instance
+6. ip will change everytime you start the instance
