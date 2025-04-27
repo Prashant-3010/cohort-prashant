@@ -5,7 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        playfair: ['Playfair Display', 'serif'],
+      },
+      fontSize: {
+        '7xl': '4.5rem', 
+        '8xl': '5rem',    
+        '9xl': '6rem',    
+      }
+    },
   },
   plugins: [],
 }
